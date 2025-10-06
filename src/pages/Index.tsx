@@ -30,10 +30,10 @@ const Index = () => {
   ];
 
   const stats = [
-    { value: "₹500Cr+", label: "Assets Under Management" },
-    { value: "50,000+", label: "Active Investors" },
+    { value: "₹15Lac+", label: "Assets Under Management" },
+    { value: "20+", label: "Active Investors" },
     { value: "200+", label: "Mutual Funds" },
-    { value: "98%", label: "Satisfaction Rate" },
+    { value: "99%", label: "Satisfaction Rate" },
   ];
 
   const partners = [
