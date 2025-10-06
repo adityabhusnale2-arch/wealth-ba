@@ -1,38 +1,13 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
 import Navigation from "@/components/Navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, ArrowDown, TrendingUp, Wallet, Target, Calendar, Sparkles } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 
 const Dashboard = () => {
-  const { user } = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) {
-      navigate('/auth');
-    }
-  }, [user, navigate]);
-
   const portfolioValue = 456789;
   const totalInvested = 320000;
   const currentReturns = portfolioValue - totalInvested;
   const returnPercentage = ((currentReturns / totalInvested) * 100).toFixed(2);
-
-  const chartData = [
-    { month: 'Jan', value: 320000 },
-    { month: 'Feb', value: 335000 },
-    { month: 'Mar', value: 352000 },
-    { month: 'Apr', value: 378000 },
-    { month: 'May', value: 395000 },
-    { month: 'Jun', value: 412000 },
-    { month: 'Jul', value: 428000 },
-    { month: 'Aug', value: 445000 },
-    { month: 'Sep', value: 456789 },
-  ];
 
   const holdings = [
     {
@@ -88,10 +63,6 @@ const Dashboard = () => {
     { fund: "SBI Small Cap Fund", amount: 3000, date: 10 },
   ];
 
-  if (!user) {
-    return null;
-  }
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -135,48 +106,6 @@ const Dashboard = () => {
             <div className="text-sm text-muted-foreground">Unrealized gains</div>
           </Card>
         </div>
-
-        {/* Portfolio Performance Chart */}
-        <Card className="p-6 shadow-card mb-8">
-          <h2 className="text-2xl font-bold mb-6">Portfolio Performance</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={chartData}>
-              <defs>
-                <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis 
-                dataKey="month" 
-                stroke="hsl(var(--muted-foreground))"
-                style={{ fontSize: '12px' }}
-              />
-              <YAxis 
-                stroke="hsl(var(--muted-foreground))"
-                style={{ fontSize: '12px' }}
-                tickFormatter={(value) => `₹${(value / 100000).toFixed(1)}L`}
-              />
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: 'hsl(var(--card))',
-                  border: '1px solid hsl(var(--border))',
-                  borderRadius: '8px',
-                  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
-                }}
-                formatter={(value: number) => [`₹${value.toLocaleString()}`, 'Portfolio Value']}
-              />
-              <Area 
-                type="monotone" 
-                dataKey="value" 
-                stroke="hsl(var(--primary))" 
-                strokeWidth={3}
-                fill="url(#colorValue)"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </Card>
 
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Holdings */}

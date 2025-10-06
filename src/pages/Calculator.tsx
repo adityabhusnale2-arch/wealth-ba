@@ -1,10 +1,6 @@
 import Navigation from "@/components/Navigation";
 import SIPCalculator from "@/components/SIPCalculator";
-import LumpsumCalculator from "@/components/LumpsumCalculator";
-import SWPCalculator from "@/components/SWPCalculator";
-import STPCalculator from "@/components/STPCalculator";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calculator as CalcIcon, TrendingUp, Target, Calendar } from "lucide-react";
 
 const Calculator = () => {
@@ -17,7 +13,7 @@ const Calculator = () => {
     {
       icon: Target,
       title: "Goal Planning",
-      description: "Plan your financial goals and see how different investment strategies can help you achieve them.",
+      description: "Plan your financial goals and see how SIP can help you achieve them systematically.",
     },
     {
       icon: Calendar,
@@ -35,52 +31,29 @@ const Calculator = () => {
         <div className="mb-8 text-center">
           <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-card border border-primary/20 mb-4">
             <CalcIcon className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium">Financial Planning Tools</span>
+            <span className="text-sm font-medium">Financial Planning Tool</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Investment Calculators
+            SIP Calculator
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Plan your investments with comprehensive calculators for SIP, Lumpsum, SWP, and STP
+            Plan your investments and visualize the potential returns from systematic investing
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Calculator */}
           <div className="lg:col-span-2">
-            <Tabs defaultValue="sip">
-              <TabsList className="grid w-full grid-cols-4 mb-6">
-                <TabsTrigger value="sip">SIP</TabsTrigger>
-                <TabsTrigger value="lumpsum">Lumpsum</TabsTrigger>
-                <TabsTrigger value="swp">SWP</TabsTrigger>
-                <TabsTrigger value="stp">STP</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="sip">
-                <SIPCalculator />
-              </TabsContent>
-              
-              <TabsContent value="lumpsum">
-                <LumpsumCalculator />
-              </TabsContent>
-              
-              <TabsContent value="swp">
-                <SWPCalculator />
-              </TabsContent>
-              
-              <TabsContent value="stp">
-                <STPCalculator />
-              </TabsContent>
-            </Tabs>
+            <SIPCalculator />
           </div>
 
           {/* Info Cards */}
           <div className="space-y-6">
             <Card className="p-6 shadow-card bg-gradient-hero text-white">
-              <h3 className="font-bold text-lg mb-2">Why These Calculators?</h3>
+              <h3 className="font-bold text-lg mb-2">Why SIP?</h3>
               <p className="text-sm opacity-90">
-                Plan your investments smartly with our comprehensive calculators. Whether you're starting fresh, 
-                investing a lumpsum, or planning withdrawals, we have the right tool for you.
+                Systematic Investment Plans (SIP) help you invest small amounts regularly, 
+                averaging out market volatility and building wealth through rupee cost averaging.
               </p>
             </Card>
 
@@ -101,26 +74,26 @@ const Calculator = () => {
 
         {/* Additional Information */}
         <Card className="p-8 shadow-card">
-          <h2 className="text-2xl font-bold mb-6">Understanding Investment Options</h2>
+          <h2 className="text-2xl font-bold mb-6">Understanding SIP Returns</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold mb-3 text-lg">Investment Types</h3>
+              <h3 className="font-semibold mb-3 text-lg">How It Works</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
-                  <span><strong>SIP:</strong> Invest fixed amounts regularly for wealth creation</span>
+                  <span>Invest a fixed amount regularly (monthly/quarterly)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
-                  <span><strong>Lumpsum:</strong> Invest one-time amount for long-term goals</span>
+                  <span>Benefits from rupee cost averaging</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
-                  <span><strong>SWP:</strong> Systematic withdrawals for regular income</span>
+                  <span>Compounding helps grow wealth over time</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
-                  <span><strong>STP:</strong> Transfer funds systematically between schemes</span>
+                  <span>Disciplined approach to wealth creation</span>
                 </li>
               </ul>
             </div>
