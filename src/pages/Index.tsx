@@ -183,9 +183,9 @@ const Index = () => {
                 <div className="h-8 w-8 rounded-lg bg-gradient-hero flex items-center justify-center">
                   <Sparkles className="h-5 w-5 text-white" />
                 </div>
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  InvestAI
-                </span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Wealth BA
+              </span>
               </div>
               <p className="text-muted-foreground">
                 AI-powered investment platform for smart wealth creation.
