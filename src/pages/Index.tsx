@@ -159,7 +159,7 @@ const Index = () => {
                   <Sparkles className="h-5 w-5 text-white" />
                 </div>
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  InvestAI
+                  Wealth BA
                 </span>
               </div>
               <p className="text-muted-foreground">
