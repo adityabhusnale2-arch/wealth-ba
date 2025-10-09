@@ -26,35 +26,6 @@ const Insurance = () => {
           <p className="text-muted-foreground">Comprehensive life and health insurance coverage for you and your family</p>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <Card className="p-6 shadow-card bg-gradient-card">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-muted-foreground font-medium">Active Policies</h3>
-              <Shield className="h-5 w-5 text-primary" />
-            </div>
-            <div className="text-3xl font-bold mb-2">8</div>
-            <div className="text-sm text-muted-foreground">Life + Health coverage</div>
-          </Card>
-
-          <Card className="p-6 shadow-card">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-muted-foreground font-medium">Total Coverage</h3>
-              <Heart className="h-5 w-5 text-success" />
-            </div>
-            <div className="text-3xl font-bold text-success mb-2">₹3.5Cr</div>
-            <div className="text-sm text-muted-foreground">Combined protection</div>
-          </Card>
-
-          <Card className="p-6 shadow-card">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-muted-foreground font-medium">Family Members</h3>
-              <Users className="h-5 w-5 text-primary" />
-            </div>
-            <div className="text-3xl font-bold mb-2">4</div>
-            <div className="text-sm text-muted-foreground">Covered individuals</div>
-          </Card>
-        </div>
 
         {/* Life Insurance Section - HDFC Life */}
         <Card className="p-6 shadow-card mb-8">
@@ -132,52 +103,6 @@ const Insurance = () => {
           </div>
         </Card>
 
-        {/* Why Choose Section */}
-        <Card className="p-6 shadow-card mt-8">
-          <h2 className="text-2xl font-bold mb-6">Why Choose Our Insurance Partners?</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg flex items-center gap-2">
-                <Shield className="h-5 w-5 text-primary" />
-                HDFC Life Insurance
-              </h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>India's leading life insurance provider with 20+ years of experience</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>98% claim settlement ratio for financial security</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Flexible premium payment options and customizable coverage</span>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg flex items-center gap-2">
-                <Heart className="h-5 w-5 text-success" />
-                ManipalCigna Health Insurance
-              </h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                  <span>Global expertise with Cigna's international healthcare network</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                  <span>15,000+ network hospitals for cashless treatment across India</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-success mt-0.5 flex-shrink-0" />
-                  <span>Quick claim processing with dedicated support team</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Card>
       </div>
     </div>
   );
