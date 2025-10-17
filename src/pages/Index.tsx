@@ -39,7 +39,7 @@ const Index = () => {
   
   const reviews = [
     {
-      name: "Rajesh Kumar",
+      name: "Prathmesh Yelmame",
       role: "Mutual Fund Investor",
       rating: 5,
       review: "The AI-powered recommendations helped me build a diversified portfolio that perfectly matches my risk appetite. My SIP returns have been consistently above 15% annually.",
