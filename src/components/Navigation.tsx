@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, LayoutDashboard, Wallet, Calculator, Sparkles, Menu, LogOut, User, Building2, Shield } from "lucide-react";
+import { TrendingUp, LayoutDashboard, Wallet, Calculator, Sparkles, Menu, LogOut, User, Building2, Shield, Heart, Banknote } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -34,6 +34,16 @@ const Navigation = () => {
       path: "/business-investments",
       label: "Business Funds",
       icon: Building2
+    },
+    {
+      path: "/insurance",
+      label: "Insurance",
+      icon: Heart
+    },
+    {
+      path: "/loans",
+      label: "Loans",
+      icon: Banknote
     }
   ];
 
