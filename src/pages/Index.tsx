@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, TrendingUp, Shield, Sparkles, Target, BarChart3, Wallet } from "lucide-react";
+import { ArrowRight, TrendingUp, Shield, Sparkles, Target, BarChart3, Wallet, Star, Quote } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import heroImage from "@/assets/hero-finance.jpg";
 const Index = () => {
@@ -36,6 +36,52 @@ const Index = () => {
     label: "Satisfaction Rate"
   }];
   const partners = ["HDFC AMC", "ICICI Prudential", "SBI Mutual Fund", "Aditya Birla", "Tata AMC", "Kotak Mahindra"];
+  
+  const reviews = [
+    {
+      name: "Rajesh Kumar",
+      role: "Mutual Fund Investor",
+      rating: 5,
+      review: "The AI-powered recommendations helped me build a diversified portfolio that perfectly matches my risk appetite. My SIP returns have been consistently above 15% annually.",
+      category: "Mutual Funds"
+    },
+    {
+      name: "Priya Sharma",
+      role: "Business Owner",
+      rating: 5,
+      review: "Got my business loan approved within 48 hours through IDFC partnership. The process was seamless and the interest rates are competitive. Highly recommended!",
+      category: "Business Loans"
+    },
+    {
+      name: "Amit Patel",
+      role: "Family Planning",
+      rating: 5,
+      review: "Secured comprehensive health insurance for my entire family through their partnership with ManipalCigna. The claims process is hassle-free and customer support is excellent.",
+      category: "Insurance"
+    },
+    {
+      name: "Sneha Reddy",
+      role: "Business Fund Manager",
+      rating: 5,
+      review: "The business investment tools helped me optimize our company's idle funds. We're now earning better returns on short-term deployments with minimal risk.",
+      category: "Business Investments"
+    },
+    {
+      name: "Vikram Singh",
+      role: "Home Buyer",
+      rating: 5,
+      review: "SBI home loan partnership made my dream home a reality. Competitive rates, quick processing, and transparent terms. The entire journey was stress-free.",
+      category: "Housing Loan"
+    },
+    {
+      name: "Anita Desai",
+      role: "SIP Investor",
+      rating: 5,
+      review: "Started with just ₹2,000 monthly SIP two years ago. The goal-based planning feature helped me stay disciplined and I've already built a corpus of ₹55,000 with excellent returns.",
+      category: "Mutual Funds"
+    }
+  ];
+
   return <div className="min-h-screen">
       <Navigation />
 
@@ -130,6 +176,52 @@ const Index = () => {
             {partners.map((partner, index) => <div key={index} className="px-6 py-3 text-lg font-semibold text-muted-foreground hover:text-primary transition-colors">
                 {partner}
               </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">
+              What Our{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Customers Say
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Join thousands of satisfied customers who trust us with their financial goals
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {reviews.map((review, index) => (
+              <Card key={index} className="p-6 hover:shadow-lg transition-shadow shadow-card">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="h-12 w-12 rounded-full bg-gradient-hero flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold">{review.name}</h4>
+                    <p className="text-sm text-muted-foreground">{review.role}</p>
+                  </div>
+                  <Quote className="h-6 w-6 text-primary/20" />
+                </div>
+                
+                <div className="flex gap-1 mb-3">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                
+                <p className="text-muted-foreground mb-3">{review.review}</p>
+                
+                <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                  {review.category}
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
