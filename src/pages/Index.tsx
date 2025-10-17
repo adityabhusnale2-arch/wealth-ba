@@ -1,88 +1,52 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, TrendingUp, Shield, Sparkles, Target, BarChart3, Wallet, Star, Quote } from "lucide-react";
+import { ArrowRight, TrendingUp, Shield, Sparkles, Target, BarChart3, Wallet } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import heroImage from "@/assets/hero-finance.jpg";
+
 const Index = () => {
-  const features = [{
-    icon: Sparkles,
-    title: "AI-Powered Insights",
-    description: "Get personalized investment recommendations based on your profile, goals, and risk appetite."
-  }, {
-    icon: Target,
-    title: "Goal-Based Planning",
-    description: "Plan for retirement, education, home purchase, or any financial goal with smart fund allocation."
-  }, {
-    icon: BarChart3,
-    title: "Real-Time Analytics",
-    description: "Track your portfolio with live NAV updates from top AMCs including HDFC, ICICI, and SBI."
-  }, {
-    icon: Shield,
-    title: "Secure & Compliant",
-    description: "Bank-grade security with 2FA authentication and encrypted transactions for your peace of mind."
-  }];
-  const stats = [{
-    value: "₹15Lac+",
-    label: "Assets Under Management"
-  }, {
-    value: "20+",
-    label: "Active Investors"
-  }, {
-    value: "200+",
-    label: "Mutual Funds"
-  }, {
-    value: "99%",
-    label: "Satisfaction Rate"
-  }];
-  const partners = ["HDFC AMC", "ICICI Prudential", "SBI Mutual Fund", "Aditya Birla", "Tata AMC", "Kotak Mahindra"];
-  
-  const reviews = [
+  const features = [
     {
-      name: "Prathmesh Yelmame",
-      role: "Mutual Fund Investor",
-      rating: 5,
-      review: "The AI-powered recommendations helped me build a diversified portfolio that perfectly matches my risk appetite. My SIP returns have been consistently above 15% annually.",
-      category: "Mutual Funds"
+      icon: Sparkles,
+      title: "AI-Powered Insights",
+      description: "Get personalized investment recommendations based on your profile, goals, and risk appetite.",
     },
     {
-      name: "Priya Sharma",
-      role: "Business Owner",
-      rating: 5,
-      review: "Got my business loan approved within 48 hours through IDFC partnership. The process was seamless and the interest rates are competitive. Highly recommended!",
-      category: "Business Loans"
+      icon: Target,
+      title: "Goal-Based Planning",
+      description: "Plan for retirement, education, home purchase, or any financial goal with smart fund allocation.",
     },
     {
-      name: "Amit Patel",
-      role: "Family Planning",
-      rating: 5,
-      review: "Secured comprehensive health insurance for my entire family through their partnership with ManipalCigna. The claims process is hassle-free and customer support is excellent.",
-      category: "Insurance"
+      icon: BarChart3,
+      title: "Real-Time Analytics",
+      description: "Track your portfolio with live NAV updates from top AMCs including HDFC, ICICI, and SBI.",
     },
     {
-      name: "Sneha Reddy",
-      role: "Business Fund Manager",
-      rating: 5,
-      review: "The business investment tools helped me optimize our company's idle funds. We're now earning better returns on short-term deployments with minimal risk.",
-      category: "Business Investments"
+      icon: Shield,
+      title: "Secure & Compliant",
+      description: "Bank-grade security with 2FA authentication and encrypted transactions for your peace of mind.",
     },
-    {
-      name: "Vikram Singh",
-      role: "Home Buyer",
-      rating: 5,
-      review: "SBI home loan partnership made my dream home a reality. Competitive rates, quick processing, and transparent terms. The entire journey was stress-free.",
-      category: "Housing Loan"
-    },
-    {
-      name: "Anita Desai",
-      role: "SIP Investor",
-      rating: 5,
-      review: "Started with just ₹2,000 monthly SIP two years ago. The goal-based planning feature helped me stay disciplined and I've already built a corpus of ₹55,000 with excellent returns.",
-      category: "Mutual Funds"
-    }
   ];
 
-  return <div className="min-h-screen">
+  const stats = [
+    { value: "₹15Lac+", label: "Assets Under Management" },
+    { value: "20+", label: "Active Investors" },
+    { value: "200+", label: "Mutual Funds" },
+    { value: "99%", label: "Satisfaction Rate" },
+  ];
+
+  const partners = [
+    "HDFC AMC",
+    "ICICI Prudential",
+    "SBI Mutual Fund",
+    "Aditya Birla",
+    "Tata AMC",
+    "Kotak Mahindra",
+  ];
+
+  return (
+    <div className="min-h-screen">
       <Navigation />
 
       {/* Hero Section */}
@@ -123,16 +87,22 @@ const Index = () => {
 
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
-                {stats.map((stat, index) => <div key={index}>
+                {stats.map((stat, index) => (
+                  <div key={index}>
                     <div className="text-2xl font-bold text-primary">{stat.value}</div>
                     <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-hero opacity-20 rounded-3xl blur-3xl"></div>
-              <img src={heroImage} alt="Investment Dashboard" className="relative rounded-3xl shadow-2xl w-full" />
+              <img
+                src={heroImage}
+                alt="Investment Dashboard"
+                className="relative rounded-3xl shadow-2xl w-full"
+              />
             </div>
           </div>
         </div>
@@ -155,15 +125,17 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return <Card key={index} className="p-6 hover:shadow-lg transition-shadow shadow-card">
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="p-6 hover:shadow-lg transition-shadow shadow-card">
                   <div className="h-12 w-12 rounded-lg bg-gradient-hero flex items-center justify-center mb-4">
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
-                </Card>;
-          })}
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -173,54 +145,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <p className="text-center text-muted-foreground mb-8">Trusted by leading AMCs</p>
           <div className="flex flex-wrap justify-center items-center gap-8">
-            {partners.map((partner, index) => <div key={index} className="px-6 py-3 text-lg font-semibold text-muted-foreground hover:text-primary transition-colors">
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="px-6 py-3 text-lg font-semibold text-muted-foreground hover:text-primary transition-colors"
+              >
                 {partner}
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Customer Reviews Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              What Our{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Customers Say
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of satisfied customers who trust us with their financial goals
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reviews.map((review, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow shadow-card">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-full bg-gradient-hero flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                    {review.name.charAt(0)}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold">{review.name}</h4>
-                    <p className="text-sm text-muted-foreground">{review.role}</p>
-                  </div>
-                  <Quote className="h-6 w-6 text-primary/20" />
-                </div>
-                
-                <div className="flex gap-1 mb-3">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                
-                <p className="text-muted-foreground mb-3">{review.review}</p>
-                
-                <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                  {review.category}
-                </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -232,7 +163,9 @@ const Index = () => {
           <Card className="p-12 bg-gradient-hero text-white text-center shadow-2xl">
             <TrendingUp className="h-16 w-16 mx-auto mb-6" />
             <h2 className="text-4xl font-bold mb-4">Ready to Start Your Investment Journey?</h2>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">Join our growing community of smart investors building wealth the smarter way — with the power of AI.</p>
+            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+              Join thousands of investors who are building wealth systematically with our AI-powered platform.
+            </p>
             <Button size="lg" variant="secondary" className="shadow-lg">
               Open Free Account
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -251,7 +184,7 @@ const Index = () => {
                   <Sparkles className="h-5 w-5 text-white" />
                 </div>
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Wealth BA
+                  InvestAI
                 </span>
               </div>
               <p className="text-muted-foreground">
@@ -292,6 +225,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
