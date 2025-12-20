@@ -65,15 +65,7 @@ const GoalCalculator = ({ goalType }: GoalCalculatorProps) => {
     return Math.round(monthlyInvestment);
   };
 
-  // Calculate required lumpsum
-  const calculateRequiredLumpsum = () => {
-    const annualRate = expectedReturn / 100;
-    const lumpsum = targetAmount / Math.pow(1 + annualRate, years);
-    return Math.round(lumpsum);
-  };
-
   const requiredSIP = calculateRequiredSIP();
-  const requiredLumpsum = calculateRequiredLumpsum();
   const totalSIPInvestment = requiredSIP * years * 12;
   const sipReturns = targetAmount - totalSIPInvestment;
 
@@ -154,21 +146,18 @@ const GoalCalculator = ({ goalType }: GoalCalculatorProps) => {
       <div className="mt-6 pt-6 border-t">
         <h4 className="font-semibold mb-4">To achieve {formatCurrency(targetAmount)} in {years} years:</h4>
         
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-gradient-card rounded-lg p-4 border border-primary/20">
-            <p className="text-xs text-muted-foreground mb-1">Monthly SIP Required</p>
-            <p className="text-xl font-bold text-primary">{formatCurrency(requiredSIP)}</p>
-            <p className="text-xs text-muted-foreground mt-2">
-              Total Investment: {formatCurrency(totalSIPInvestment)}
-            </p>
-          </div>
-          
-          <div className="bg-gradient-card rounded-lg p-4 border border-primary/20">
-            <p className="text-xs text-muted-foreground mb-1">One-time Lumpsum</p>
-            <p className="text-xl font-bold text-primary">{formatCurrency(requiredLumpsum)}</p>
-            <p className="text-xs text-muted-foreground mt-2">
-              Returns: {formatCurrency(targetAmount - requiredLumpsum)}
-            </p>
+        <div className="bg-gradient-card rounded-lg p-4 border border-primary/20">
+          <p className="text-xs text-muted-foreground mb-1">Monthly SIP Required</p>
+          <p className="text-2xl font-bold text-primary">{formatCurrency(requiredSIP)}</p>
+          <div className="mt-3 space-y-1">
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Total Investment</span>
+              <span className="font-medium">{formatCurrency(totalSIPInvestment)}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Wealth Gain</span>
+              <span className="font-medium text-green-600">{formatCurrency(sipReturns)}</span>
+            </div>
           </div>
         </div>
 
