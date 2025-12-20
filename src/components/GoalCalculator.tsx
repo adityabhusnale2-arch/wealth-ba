@@ -278,19 +278,33 @@ const GoalCalculator = ({ goalType }: GoalCalculatorProps) => {
           </div>
         </div>
 
-        <div className="mt-4 p-3 bg-muted/50 rounded-lg">
+        {/* Inflation Reality Check */}
+        <div className="mt-4 p-4 bg-orange-50 dark:bg-orange-950/30 rounded-lg border border-orange-200 dark:border-orange-800">
+          <p className="text-sm font-medium text-orange-800 dark:text-orange-300 mb-2">
+            📊 What {formatCurrency(targetAmount)} today means in {years} years:
+          </p>
+          <div className="space-y-2 text-sm text-orange-700 dark:text-orange-400">
+            <p>
+              • <strong>You'll need:</strong> {formatCurrency(Math.round(targetAmount * Math.pow(1 + inflationRate / 100, years)))} to buy the same things
+            </p>
+            <p>
+              • <strong>Your {formatCurrency(targetAmount)} will feel like:</strong> {formatCurrency(Math.round(targetAmount / Math.pow(1 + inflationRate / 100, years)))} in today's value
+            </p>
+            <p className="text-xs mt-2 text-orange-600 dark:text-orange-500">
+              💡 Simply put: Prices double roughly every 12 years at 6% inflation. So plan for the future price, not today's!
+            </p>
+          </div>
+        </div>
+
+        {/* Tips */}
+        <div className="mt-3 p-3 bg-muted/50 rounded-lg">
           <p className="text-xs text-muted-foreground">
-            💡 <strong>Tip:</strong> {enableStepUp ? "Step-up SIP helps you start smaller and increase as your income grows. " : ""}
-            {enableInflation ? `With ${inflationRate}% inflation, your ${formatCurrency(targetAmount)} today will be worth ${formatCurrency(inflationAdjustedTarget)} in ${years} years. ` : ""}
-            {!enableStepUp && !enableInflation && (
-              <>
-                Starting early gives you more time for compounding.
-                {goalType === "retirement" && " Consider enabling step-up SIP to match your salary increments."}
-                {goalType === "education" && " Enable inflation adjustment as education costs rise ~10% annually."}
-                {goalType === "wedding" && " Keep some buffer for unexpected expenses."}
-                {goalType === "car" && " Don't forget to factor in insurance and maintenance costs."}
-              </>
-            )}
+            💡 <strong>Tip:</strong> {enableStepUp ? "Step-up SIP lets you start small and increase yearly as your salary grows. " : ""}
+            {enableInflation ? "Great! You're planning for real future costs. " : "Turn on 'Adjust for Inflation' to see actual amount you'll need. "}
+            {goalType === "retirement" && "Most people underestimate retirement needs - your monthly expenses will be higher!"}
+            {goalType === "education" && "Education costs rise 8-10% yearly - more than normal inflation!"}
+            {goalType === "wedding" && "Wedding costs are rising fast - add 20% buffer for last-minute expenses."}
+            {goalType === "car" && "Remember: Car price is just the start. Add insurance + fuel + service costs!"}
           </p>
         </div>
       </div>
