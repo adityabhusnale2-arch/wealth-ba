@@ -15,11 +15,11 @@ const Navigation = () => {
       label: "Home",
       icon: TrendingUp
     },
-    {
-      path: "/dashboard",
-      label: "Dashboard",
-      icon: LayoutDashboard
-    },
+    // {
+    //   path: "/dashboard",
+    //   label: "Dashboard",
+    //   icon: LayoutDashboard
+    // },
     {
       path: "/mutual-funds",
       label: "Mutual Funds",
@@ -47,13 +47,13 @@ const Navigation = () => {
     }
   ];
 
-  if (userRole === 'admin') {
-    navItems.push({
-      path: "/admin",
-      label: "Admin",
-      icon: Shield
-    });
-  }
+  // if (userRole === 'admin') {
+  //   navItems.push({
+  //     path: "/admin",
+  //     label: "Admin",
+  //     icon: Shield
+  //   });
+  // }
 
   const NavLinks = ({
     mobile = false
@@ -97,7 +97,7 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
             <NavLinks />
-            <div className="ml-4 flex items-center gap-3">
+            {/* <div className="ml-4 flex items-center gap-3">
               {user ? (
                 <>
                   <div className="flex items-center gap-2 text-sm px-3 py-1 bg-muted rounded-lg">
@@ -114,7 +114,7 @@ const Navigation = () => {
                   <Button>Sign In</Button>
                 </Link>
               )}
-            </div>
+            </div> */}
           </div>
 
           {/* Mobile Navigation */}
@@ -127,7 +127,7 @@ const Navigation = () => {
             <SheetContent>
               <div className="flex flex-col gap-4 mt-8">
                 <NavLinks mobile />
-                <div className="mt-6 pt-6 border-t">
+                {/* <div className="mt-6 pt-6 border-t">
                   {user ? (
                     <>
                       <div className="flex items-center gap-2 mb-4 text-sm px-3 py-2 bg-muted rounded-lg">
@@ -144,7 +144,7 @@ const Navigation = () => {
                       <Button className="w-full">Sign In</Button>
                     </Link>
                   )}
-                </div>
+                </div> */}
               </div>
             </SheetContent>
           </Sheet>

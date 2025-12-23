@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import Navigation from '@/components/Navigation';
+import WhatsAppChat from '@/components/WhatsAppChat';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Users, TrendingUp, Wallet, Activity } from 'lucide-react';
@@ -98,6 +99,9 @@ const Admin = () => {
           </Card>
         </div>
       </div>
+      
+      {/* WhatsApp Chat Widget */}
+      <WhatsAppChat />
     </div>
   );
 };

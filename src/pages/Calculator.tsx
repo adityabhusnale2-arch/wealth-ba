@@ -7,6 +7,7 @@ import GoalCalculator from "@/components/GoalCalculator";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calculator as CalcIcon, TrendingUp, Target, Calendar, Car, GraduationCap, Heart, Palmtree } from "lucide-react";
+import WhatsAppChat from "@/components/WhatsAppChat";
 
 const Calculator = () => {
   const benefits = [
@@ -59,6 +60,19 @@ const Calculator = () => {
               
               <TabsContent value="sip">
                 <SIPCalculator />
+                {/* Goal-Based Calculators */}
+            <div className="mt-8">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                <Target className="h-6 w-6 text-primary" />
+                Goal-Based Planning
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <GoalCalculator goalType="car" />
+                <GoalCalculator goalType="retirement" />
+                <GoalCalculator goalType="education" />
+                <GoalCalculator goalType="wedding" />
+              </div>
+            </div>
               </TabsContent>
               
               <TabsContent value="lumpsum">
@@ -74,19 +88,7 @@ const Calculator = () => {
               </TabsContent>
             </Tabs>
 
-            {/* Goal-Based Calculators */}
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                <Target className="h-6 w-6 text-primary" />
-                Goal-Based Planning
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <GoalCalculator goalType="car" />
-                <GoalCalculator goalType="retirement" />
-                <GoalCalculator goalType="education" />
-                <GoalCalculator goalType="wedding" />
-              </div>
-            </div>
+            
           </div>
 
           {/* Info Cards */}
@@ -164,6 +166,9 @@ const Calculator = () => {
           </div>
         </Card>
       </div>
+
+      {/* WhatsApp Chat Widget */}
+      <WhatsAppChat />
     </div>
   );
 };
