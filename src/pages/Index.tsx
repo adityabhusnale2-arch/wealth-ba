@@ -3,8 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Shield, Sparkles, Target, BarChart3, Wallet, Star, Quote } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import WhatsAppChat from "@/components/WhatsAppChat";
 import heroImage from "@/assets/hero-finance.jpg";
 const Index = () => {
+  const whatsappNumber = '917385416026';
+  
+  const openWhatsApp = (message: string) => {
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   const features = [{
     icon: Sparkles,
     title: "AI-Powered Insights",
@@ -35,7 +44,7 @@ const Index = () => {
     value: "99%",
     label: "Satisfaction Rate"
   }];
-  const partners = ["HDFC AMC", "ICICI Prudential", "SBI Mutual Fund", "Aditya Birla", "Tata AMC", "Kotak Mahindra"];
+  const partners = ["HDFC AMC", "Tata AMC", "Nippon India AMC"];
   
   const reviews = [
     {
@@ -87,8 +96,8 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-10"></div>
-        <div className="container mx-auto px-4 py-20 md:py-32">
+        <div className="absolute inset-0 bg-gradient-hero opacity-10 pointer-events-none"></div>
+        <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-card border border-primary/20">
@@ -107,16 +116,15 @@ const Index = () => {
                 Build wealth systematically with expert-curated mutual funds, SIP calculators, and personalized AI recommendations. Start your investment journey today.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/dashboard">
-                  <Button size="lg" className="w-full sm:w-auto shadow-lg-colored">
+              <div className="flex flex-col sm:flex-row gap-4 relative z-20">
+                  <Button size="lg" className="w-full sm:w-auto shadow-lg-colored" onClick={() => openWhatsApp('Hi! I want to start investing. Can you guide me through the investment process and help me get started?')}>
                     Start Investing
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                </Link>
-                <Link to="/calculator">
+                <Link to="/calculator" className="relative z-20">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
                     Try SIP Calculator
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </div>
@@ -131,7 +139,7 @@ const Index = () => {
             </div>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-hero opacity-20 rounded-3xl blur-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-hero opacity-20 rounded-3xl blur-3xl pointer-events-none"></div>
               <img src={heroImage} alt="Investment Dashboard" className="relative rounded-3xl shadow-2xl w-full" />
             </div>
           </div>
@@ -233,7 +241,12 @@ const Index = () => {
             <TrendingUp className="h-16 w-16 mx-auto mb-6" />
             <h2 className="text-4xl font-bold mb-4">Ready to Start Your Investment Journey?</h2>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">Join our growing community of smart investors building wealth the smarter way — with the power of AI.</p>
-            <Button size="lg" variant="secondary" className="shadow-lg">
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="shadow-lg"
+              onClick={() => openWhatsApp('Hi! I want to open a free investment account. Can you guide me through the account opening process and help me get started?')}
+            >
               Open Free Account
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -292,6 +305,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      
+      {/* WhatsApp Chat Widget */}
+      <WhatsAppChat />
     </div>;
 };
 export default Index;
