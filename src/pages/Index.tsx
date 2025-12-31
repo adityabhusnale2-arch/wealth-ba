@@ -32,10 +32,10 @@ const Index = () => {
     description: "Bank-grade security with 2FA authentication and encrypted transactions for your peace of mind."
   }];
   const stats = [{
-    value: "₹15Lac+",
+    value: "₹20Lac+",
     label: "Assets Under Management"
   }, {
-    value: "20+",
+    value: "25+",
     label: "Active Investors"
   }, {
     value: "200+",
