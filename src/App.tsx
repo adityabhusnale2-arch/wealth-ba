@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
+import AdityaChat from "@/components/AdityaChat";
 import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import MutualFunds from "./pages/MutualFunds";
@@ -22,6 +23,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AdityaChat />
       <BrowserRouter>
         <AuthProvider>
           <Routes>
