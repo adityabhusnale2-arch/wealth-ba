@@ -1,1 +1,4 @@
 project_id = "ygycgwinffkwwjiyxdlr"
+
+[functions.aditya-chat]
+verify_jwt = false
