@@ -8,6 +8,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Search, TrendingUp, Info } from "lucide-react";
 import WhatsAppChat from "@/components/WhatsAppChat";
+import AdityaChat from "@/components/AdityaChat";
 
 const MutualFunds = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -562,6 +563,9 @@ const MutualFunds = () => {
 
       {/* WhatsApp Chat Widget */}
       <WhatsAppChat />
+      
+      {/* Aditya AI Chat */}
+      <AdityaChat />
     </div>
   );
 };

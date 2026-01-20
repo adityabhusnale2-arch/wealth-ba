@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calculator as CalcIcon, TrendingUp, Target, Calendar, Car, GraduationCap, Heart, Palmtree } from "lucide-react";
 import WhatsAppChat from "@/components/WhatsAppChat";
+import AdityaChat from "@/components/AdityaChat";
 
 const Calculator = () => {
   const benefits = [
@@ -169,6 +170,9 @@ const Calculator = () => {
 
       {/* WhatsApp Chat Widget */}
       <WhatsAppChat />
+      
+      {/* Aditya AI Chat */}
+      <AdityaChat />
     </div>
   );
 };
