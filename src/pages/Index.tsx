@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Shield, Sparkles, Target, BarChart3 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import WhatsAppChat from "@/components/WhatsAppChat";
+import AdityaChat from "@/components/AdityaChat";
 import heroImage from "@/assets/hero-finance.jpg";
 const Index = () => {
   const whatsappNumber = '917385416026';
@@ -219,6 +220,9 @@ const Index = () => {
       
       {/* WhatsApp Chat Widget */}
       <WhatsAppChat />
+      
+      {/* Aditya AI Chat */}
+      <AdityaChat />
     </div>;
 };
 export default Index;
